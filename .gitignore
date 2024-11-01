@@ -1,0 +1,14 @@
+# Ignorar node_modules em ambas as pastas
+cadastro-clientes-backend/node_modules
+cadastro-clientes-frontend/node_modules
+
+# Ignorar arquivos de build do React
+frontend/build
+
+# Ignorar variáveis de ambiente
+backend/.env
+frontend/.env
+
+# Ignorar outras pastas e arquivos desnecessários
+*.log
+.DS_Store
