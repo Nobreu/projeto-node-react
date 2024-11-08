@@ -1,7 +1,8 @@
-const db = require('../config/database');
-const path = require('path');
+import db from '../config/database.js';
+import path from 'path';
 
-exports.cadastrarCliente = (req, res) => {
+
+export const cadastrarCliente = (req, res) => {
     const { nome_completo, email, telefone, rua, bairro, estado, numero_casa, complemento } = req.body;
     const foto = req.file ? req.file.filename : null;
 
@@ -14,14 +15,14 @@ exports.cadastrarCliente = (req, res) => {
     });
 };
 
-exports.listarClientes = (req, res) => {
+export const listarClientes = (req, res) => {
     db.query('SELECT * FROM clientes', (err, results) => {
         if (err) throw err;
         res.json(results);
     });
 };
 
-exports.detalheCliente = (req, res) => {
+export const detalheCliente = (req, res) => {
     const id = req.params.id;
     db.query('SELECT * FROM clientes WHERE id = ?', [id], (err, results) => {
         if (err) throw err;

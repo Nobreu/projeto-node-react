@@ -1,10 +1,10 @@
-const express = require('express');
+import express from 'express';
+import { cadastrarCliente, listarClientes, detalheCliente } from '../controllers/clienteController.js';
+import upload from '../config/uploadConfig.js';
 const router = express.Router();
-const clienteController = require('../controllers/clienteController');
-const upload = require('../config/uploadConfig');
 
-router.post('/cadastrar', upload.single('foto'), clienteController.cadastrarCliente);
-router.get('/cadastros', clienteController.listarClientes);
-router.get('/cadastro/:id', clienteController.detalheCliente);
+router.post('/cadastrar', upload.single('foto'), cadastrarCliente);
+router.get('/cadastros', listarClientes);
+router.get('/cadastro/:id', detalheCliente);
 
-module.exports = router;
+export default router;
